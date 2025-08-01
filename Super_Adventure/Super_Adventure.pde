@@ -15,6 +15,8 @@ final static float WIDTH = SPRITE_SIZE * 16;
 final static float HEIGHT = SPRITE_SIZE *12;
 final static float GROUND_LEVEL = HEIGHT - SPRITE_SIZE;
 
+// My first Git commit!
+
 /*
 Section 1: Here we will be practicing declaring various data types and performing expression
 statements for our game to work. You will be provided with 
@@ -23,6 +25,12 @@ to give them, expressions, and the data types for each.
 
 Declare  an int named score, a boolean named isGameOver and 2 floats named view_x and view_y */
 
+int score;
+boolean isGameOver;
+float view_x;
+float view_y;
+
+//Finished section 1
 
 /* -------------------------- */
 
@@ -31,6 +39,8 @@ Declare  an int named score, a boolean named isGameOver and 2 floats named view_
 Declare a string named coinPhrase and livePhrase
 */
 
+String coinPhrase;
+String livePhrase;
 
 /*-----------------------*/
 Player player;
@@ -51,8 +61,10 @@ void setup() {
   
   Call the constructor Player(p,SPRITE_SCALE) with those parameters. It should be set equal to the player variable
   */
+
+   player = new Player(p,SPRITE_SCALE);
  
- 
+  //Finsihed section 2
  
   /*----------------------*/
   player.change_x = 0;
@@ -179,16 +191,16 @@ void keyPressed() {
   Fill in the If statements, one is done for you and the remaining are the other directions. They only require
   the directions in order: RIGHT, LEFT, UP, & DOWN
   */
-  if() {
+  if(keyCode == RIGHT) {
      player.change_x = MOVE_SPEED; 
   }
-   else if() {
+   else if(keyCode == LEFT) {
      player.change_x = -MOVE_SPEED; 
   }
    else if(keyCode == UP && isOnPlatforms(player,platforms)) {
      player.change_y = -JUMP_SPEED; 
   }
-   else if() {
+   else if(keyCode == DOWN) {
      player.change_y = MOVE_SPEED; 
   }
   else if(isGameOver && key == ' ') {
@@ -202,16 +214,17 @@ void keyReleased() {
   /* Section 3: If statements will complete the key released function
     Fill these in same as above the order is: RIGHT, LEFT, DOWN
   */
-    if() {
+    if(keyCode == RIGHT) {
      player.change_x = 0; 
   }
-   else if() {
+   else if(keyCode == LEFT) {
      player.change_x = 0; 
   }
-   else if() {
+   else if(keyCode == DOWN) {
      player.change_y = 0; 
   }
   /*----------------------------*/
+  // Finished section 3
 }
 
 void createPlatforms(String filename) {
@@ -227,10 +240,10 @@ void createPlatforms(String filename) {
   */
   String[] lines = loadStrings(filename);
   /* First for loop */
-  for() {
+  for(int row = 0; row < lines.length; row++) {
     String[] values = split(lines[row],",");
     /* Second for loop */
-    for() {
+    for(int col = 0; col < values.length; col++) {
       if(values[col].equals("m")) {
          Sprite s = new Sprite(marble_block,SPRITE_SCALE);
          s.center_x = SPRITE_SIZE/2 + col * SPRITE_SIZE;
